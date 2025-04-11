@@ -2,7 +2,6 @@ package org.uniquindio;
 
 public class Punto5 {
 
-    // Nodo para la pila
     static class Nodo {
         char dato;
         Nodo siguiente;
@@ -13,7 +12,6 @@ public class Punto5 {
         }
     }
 
-    // Pila de caracteres
     static class Pila {
         Nodo cima;
 
@@ -40,19 +38,16 @@ public class Punto5 {
         }
     }
 
-    // Método para verificar si los símbolos están balanceados
     public static boolean estaBalanceado(String expresion) {
         Pila pila = new Pila();
 
         for (int i = 0; i < expresion.length(); i++) {
             char c = expresion.charAt(i);
 
-            // Si es apertura, lo metemos en la pila
             if (c == '(' || c == '[' || c == '{') {
                 pila.push(c);
             }
 
-            // Si es cierre, verificamos con el tope de la pila
             if (c == ')' || c == ']' || c == '}') {
                 if (pila.estaVacia()) return false;
 
@@ -65,17 +60,14 @@ public class Punto5 {
                 }
             }
         }
-
-        // Si la pila está vacía al final, está balanceado
         return pila.estaVacia();
     }
 
-    // Prueba
     public static void main(String[] args) {
         String expresion1 = "(6-7)/4]";
         String expresion2 = "[(1+2)*4]+5";
 
-        System.out.println(expresion1 + " → " + estaBalanceado(expresion1)); // false
-        System.out.println(expresion2 + " → " + estaBalanceado(expresion2)); // true
+        System.out.println(expresion1 + "= " + estaBalanceado(expresion1));
+        System.out.println(expresion2 + "= " + estaBalanceado(expresion2));
     }
 }

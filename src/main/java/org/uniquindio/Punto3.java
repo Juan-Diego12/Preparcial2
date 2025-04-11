@@ -2,7 +2,6 @@ package org.uniquindio;
 
 public class Punto3 {
 
-    // Clase Persona
     static class Persona {
         String nombre;
         int edad;
@@ -19,7 +18,6 @@ public class Punto3 {
         }
     }
 
-    // Nodo con Persona
     static class Nodo {
         Persona persona;
         Nodo siguiente;
@@ -30,7 +28,6 @@ public class Punto3 {
         }
     }
 
-    // Cola de Personas
     static class Cola {
         Nodo frente, fin;
 
@@ -65,7 +62,6 @@ public class Punto3 {
         }
     }
 
-    // Método que elimina hombres entre 30 y 50 años de la cola
     public static void filtrarCola(Cola cola) {
         Cola temporal = new Cola();
 
@@ -76,13 +72,11 @@ public class Punto3 {
             }
         }
 
-        // Restaurar la cola original con los elementos filtrados
         while (!temporal.estaVacia()) {
             cola.encolar(temporal.desencolar());
         }
     }
 
-    // Prueba
     public static void main(String[] args) {
         Cola cola = new Cola();
         cola.encolar(new Persona("Carlos", 35, 'M'));
@@ -97,7 +91,7 @@ public class Punto3 {
 
         filtrarCola(cola);
 
-        System.out.println("\nCola filtrada (sin hombres entre 30 y 50):");
+        System.out.println("Cola filtrada");
         cola.imprimir();
     }
 }
